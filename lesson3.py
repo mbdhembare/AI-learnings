@@ -15,4 +15,5 @@ df=pd.DataFrame(data) #create dataframe
 
 # print(df["services"])   #get column
 # print(df[["services", "cpu_usage"]])  #get multiple columns
-print(df.iloc[0])   #select rows using .iloc
+# print(df.iloc[0])   #select rows using .iloc
+print(df.loc[df["cpu_usage"] > 80])
