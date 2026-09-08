@@ -1,12 +1,22 @@
+import tiktoken
+
+embedings=tiktoken.get_encoding("cl100k_base")
+
 sentences = [
-    "Hello world!",
+    "Hello",
+    "Hello world",
+    "Generative AI",
+    "I am learning Generative AI",
     "The server is running slowly.",
-    "I am learning Generative AI.",
-    "Tokenization is important for LLMs."
+    "def calculate_average(numbers): return sum(numbers) / len(numbers)"
 ]
 
 for sentence in sentences:
-    words=sentence.split()
-    print(words)
-    print(sentence)
-    print(len(words))
+    token=embedings.encode(sentence)
+
+    print("\ntext: ", sentence)
+    print("words count: ", len(sentence.split()))
+    print("token count: ", len(token))
+    print("tokens: ", )
+    for token in token:
+        print(token, "->", embedings.decode([token]))
